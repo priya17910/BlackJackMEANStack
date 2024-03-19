@@ -1,0 +1,20 @@
+h1 {
+    color: green;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 2vmax;
+}
+.winner-dialog {
+    background-color:rgb(174, 213, 174);
+}
+.close-button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+}

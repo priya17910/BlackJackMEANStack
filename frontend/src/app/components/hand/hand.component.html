@@ -1,0 +1,25 @@
+<div class="hand-container">
+    <h2>Deck of Cards</h2>
+    <div class="card-container" *ngIf="playerHand">
+        <ng-container *ngFor="let card of playerHand">
+            <div class="card">
+                Card {{ card.rank }} of {{ card.suit }}
+            </div>
+        </ng-container>
+        <div *ngIf="isPlayer" class="total-score">
+            <span>Total Score: {{ calculateScore(playerHand) }}</span>
+        </div>
+    </div>
+
+    <div class="card-container" *ngIf="dealerHand">
+        <ng-container *ngFor="let card of dealerHand">
+            <div class="card">
+                Card {{ card.rank }} of {{ card.suit }}
+            </div>
+        </ng-container>
+        <div *ngIf="!isPlayer" class="total-score">
+            <span>Total Score: {{ calculateScore(dealerHand) }}</span>
+        </div>
+    </div>
+</div>
+  

@@ -1,0 +1,18 @@
+<div class="start-game">  
+<h2>Player Hand</h2>
+  <app-hand [isPlayer]="true" [playerHand]="game.playerHand" class="hand"></app-hand>
+
+
+  <h2>Dealer Hand</h2>
+  <app-hand [isPlayer]="false" [dealerHand]="game.dealerHand" class="hand"></app-hand>
+</div>
+<div class="button-container">
+  <button (click)="dealCards(game._id)" [disabled]="game.playerHand.length > 0" class="action-button" style="margin-left: 2vmax;">Deal Cards</button>
+  <button (click)="hitAction(game._id)" [disabled]="game.status !== 'ongoing'" class="action-button">Hit</button>
+  <button (click)="standAction(game._id)" [disabled]="game.status !== 'ongoing'" class="action-button">Stand</button>
+  <button (click)="checkStart()" class="action-button">Start new Game</button>
+  <button (click)="endGame(game._id)" class="action-button">End Game</button>
+  <button (click)="homePage()" class="action-button">Back to Home page</button>
+</div>
+
+

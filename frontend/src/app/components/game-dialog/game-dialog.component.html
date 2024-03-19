@@ -1,0 +1,63 @@
+<div *ngIf="!isUpdateDialog" class="game-details-dialog">
+    <h2>Game Details</h2>
+    <table class="game-details-table">
+        <tr>
+            <th>Player Hand</th>
+            <td><div *ngFor="let player of data.playerHand" class="card">{{ player.rank }} of {{ player.suit }}</div></td>
+        </tr>
+        <tr>
+            <th>Dealer Hand</th>
+            <td><div *ngFor="let dealer of data.dealerHand" class="card">{{ dealer.rank }} of {{ dealer.suit }}</div></td>
+        </tr>
+        <tr>
+            <th>Player Total</th>
+            <td>{{ data.playerTotal }}</td>
+        </tr>
+        <tr>
+            <th>Dealer Total</th>
+            <td>{{ data.dealerTotal }}</td>
+        </tr>
+        <tr>
+            <th>Winner</th>
+            <td>{{ data.winner }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ data.status }}</td>
+        </tr>
+    </table>
+    <button mat-button class="close-button" (click)="closeDialog()">Close</button>
+</div>
+<div *ngIf="isUpdateDialog" class="update-game-dialog">
+    <h2>Update Game</h2>
+    <table class="update-game-table">
+        <tr>
+            <th>Player Hand</th>
+            <td><div *ngFor="let player of data.game.playerHand" class="card">{{ player.rank }} of {{ player.suit }}</div></td>
+        </tr>
+        <tr>
+            <th>Dealer Hand</th>
+            <td><div *ngFor="let dealer of data.game.dealerHand" class="card">{{ dealer.rank }} of {{ dealer.suit }}</div></td>
+        </tr>
+        <tr>
+            <th>Player Total</th>
+            <td>{{ data.game.playerTotal }}</td>
+        </tr>
+        <tr>
+            <th>Dealer Total</th>
+            <td>{{ data.game.dealerTotal }}</td>
+        </tr>
+        <tr>
+            <th>Winner</th>
+            <td>{{ data.game.winner }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ data.game.status }}</td>
+        </tr>
+    </table>
+    <div class="dialog-buttons">
+        <button mat-button class="play-button" (click)="playGame(data.game._id)">Continue Game</button>
+        <button mat-button class="close-button" (click)="closeDialog()">Close</button>
+    </div>
+</div>

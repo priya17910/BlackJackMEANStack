@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkslategrey;
+    color: white;
+    text-decoration: underline;
+}
+
+h1 {
+    font-weight: bold;
+    padding: 1.2vmax;
+}

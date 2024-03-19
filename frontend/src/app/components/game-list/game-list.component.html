@@ -1,0 +1,38 @@
+<a href="/create" class="link-button">Start new game</a>
+<div *ngIf="games.length > 0; else noGames" class="game-list">
+    <h1 class="game-list-title">List of Games</h1>
+    <table class="game-table">
+      <thead>
+        <tr>
+          <th>Player Hand</th>
+          <th>Dealer Hand</th>
+          <th>Player Total</th>
+          <th>Dealer Total</th>
+          <th>Winner</th>
+          <th>Status</th>
+          <th style="text-align: center;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games" class="game-row">
+          <td *ngIf="game.playerHand.length > 0 || game.status !== 'ongoing'" class="player-hand"><div *ngFor="let player of game.playerHand">{{ player.rank }} of {{ player.suit }}</div></td>
+          <td *ngIf="game.playerHand.length > 0 || game.status !== 'ongoing'" class="dealer-hand"><div *ngFor="let dealer of game.dealerHand">{{ dealer.rank }} of {{ dealer.suit }}</div></td>
+          <td *ngIf="game.playerHand.length > 0 || game.status !== 'ongoing'" class="player-total">{{ game.playerTotal }}</td>
+          <td *ngIf="game.playerHand.length > 0 || game.status !== 'ongoing'" class="dealer-total">{{ game.dealerTotal }}</td>
+          <td *ngIf="game.playerHand.length > 0 || game.status !== 'ongoing'" class="winner">{{ game.winner }}</td>
+          <td *ngIf="game.playerHand.length > 0 || game.status !== 'ongoing'" class="status">{{ game.status }}</td>
+          <td *ngIf="game.playerHand.length > 0 || game.status !== 'ongoing'" class="actions" style="text-align: center;">
+            <button (click)="getGameById(game._id)" class="get-button">Get</button>
+            <button (click)="updateGame(game._id)" [disabled]="game.status === 'ended'" class="update-button" style="background-color: green;">Update</button>
+            <button (click)="confirmDelete(game._id)" style="background-color: rgb(181, 57, 57);">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<ng-template #noGames>
+    <div class="noGames">
+        <p>No games available</p>
+    </div>
+</ng-template>
+  

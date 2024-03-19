@@ -1,0 +1,35 @@
+h2 {
+    margin-left: 12%;
+    margin-top: 1.5vmax;
+}
+.hand {
+    margin-bottom: 20px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0056b3;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -16vmax;
+    margin-left: 30%;
+}
+button {
+    margin-bottom: 1.5vmax;
+}
+
+button:disabled {
+    background-color: #95b1ce;
+    color: black; 
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
